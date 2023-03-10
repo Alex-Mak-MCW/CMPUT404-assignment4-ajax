@@ -28,9 +28,6 @@
     <script>
 var canvas = document.getElementById('c');
 var host = window.location.host;
-
-// var urlLink=`http://${window.location.hostname}`;
-
 var context = canvas.getContext("2d");
 var W = canvas.width  = window.innerWidth-6;
 var H = canvas.height = window.innerHeight-50;
@@ -60,7 +57,17 @@ function sendJSONXMLHTTPRequest(url, objects, callback, requestType) {
     // open --> setRequestHeader --> send
     
     //XXX: POST to a URL
-    // REF: https://stackoverflow.com/questions/9713058/send-post-data-using-xmlhttprequest
+
+    // I have learned from the source below to open and send XHTML request.
+
+    // Source Title: Send POST data using XMLHttpRequest
+    // Source Type: Website(StackOverflow)
+    // Source author and editor: Ed Heal(URL: https://stackoverflow.com/users/892256/ed-heal), rkachach (URL: https://stackoverflow.com/users/1313233/rkachach)
+    // Source License: CC BY - SA 4.0
+    // Latest date contributed: October 6th, 2020
+    // Resource URI: https://stackoverflow.com/questions/9713058/send-post-data-using-xmlhttprequest
+
+
     // Set async as true to perform operation asynchronously
     xhr.open(requestType, url, true);
     // xhr.open(requestType, url, True);
@@ -283,15 +290,15 @@ mouse = (function() {
 //XXX: TODO Make these prettier! 
 // TBA!!! (CHANGE THE COLORS and radius)
 mouse.mousedowners.push(function(x,y,clicked,e) {
-    addEntityWithoutName({'x':x,'y':y,'colour':'yellow', 'radius':75});
+    addEntityWithoutName({'x':x,'y':y,'colour':'yellow', 'radius':60});
 });
 
 mouse.mouseuppers.push(function(x,y,clicked,e) {
-    addEntityWithoutName({'x':x,'y':y,'colour':'silver', 'radius': 100 });
+    addEntityWithoutName({'x':x,'y':y,'colour':'white', 'radius': 85 });
 });
 
 mouse.mousedraggers.push(function(x,y,clicked,e) {
-    addEntityWithoutName({'x':x,'y':y,'colour':'white','radius':50});
+    addEntityWithoutName({'x':x,'y':y,'colour':'silver','radius':35});
 });
 
 
@@ -300,13 +307,13 @@ function update() {
 
     // data/objects set to null, arrow function to the update itself
     sendJSONXMLHTTPRequest("/world", null, (updateWorld) => {
-        // set world as the param world
+        // set world as the parameter world
         world=updateWorld;
         // perform drawing function
         drawNextFrame();
         drawFrame();
     }, "GET");
-    
+
 }
 
 // 30 frames per second

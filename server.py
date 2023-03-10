@@ -75,8 +75,14 @@ def flask_post_json():
 @app.route("/")
 def hello():
     '''Return something coherent here.. perhaps redirect to /static/index.html '''
-    # used the redirect module
-    # add source below: https://stackoverflow.com/questions/14343812/redirecting-to-url-in-flask
+    # I have learned from the source below to use the redirect module in order to redirect an URL with proper response code
+
+    # Source Title: Redirecting to URL in Flask
+    # Source Type: Website (StackOverflow)
+    # Source author and editor: Xavier Combelle (URL: https://stackoverflow.com/users/128629/xavier-combelle), HackDolphin (URL: https://stackoverflow.com/users/16117401/hackdolphin)
+    # Source License: CC BY-SA 4.0
+    # Latest date contributed: June 25th, 2021
+    # Resource URI: https://stackoverflow.com/questions/14343812/redirecting-to-url-in-flask
     return redirect("/static/index.html", code=301)
 
 @app.route("/entity/<entity>", methods=['POST','PUT'])
