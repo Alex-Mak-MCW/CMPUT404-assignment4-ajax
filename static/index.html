@@ -84,7 +84,6 @@ function sendJSONXMLHTTPRequest(url, objects, callback, requestType) {
 
 world = {};
 
-// TBA!!!
 //XXX: TODO Make this prettier!
 function drawCircle(context,entity) {
     // I have learned from the source below to learn more drawing instance methods (i.e. getLineDash) to help make my drawing prettier
@@ -98,7 +97,8 @@ function drawCircle(context,entity) {
 
     with(context) {
         beginPath();
-        context.setLineDash([2,5]);
+        // change line from regular line to dashed line
+        context.setLineDash([3,5]);
 
         // lineWidth = 3;
         lineWidth=10;
@@ -295,7 +295,6 @@ mouse = (function() {
 
 // Add the application specific mouse listeners!
 //XXX: TODO Make these prettier! 
-// TBA!!! (CHANGE THE COLORS and radius)
 mouse.mousedowners.push(function(x,y,clicked,e) {
     addEntityWithoutName({'x':x,'y':y,'colour':'yellow', 'radius':60});
 });
