@@ -87,6 +87,15 @@ world = {};
 // TBA!!!
 //XXX: TODO Make this prettier!
 function drawCircle(context,entity) {
+    // I have learned from the source below to learn more drawing instance methods (i.e. getLineDash) to help make my drawing prettier
+
+    // Source Title: CanvasRenderingContext2D
+    // Source Type: Website
+    // Source author: MDN contributors
+    // Source License: CC-BY-SA 2.5
+    // Latest date contributed: February 18th, 2023
+    // URL: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/getLineDash
+
     with(context) {
         beginPath();
         context.setLineDash([2,5]);
@@ -95,12 +104,10 @@ function drawCircle(context,entity) {
         lineWidth=10;
         var x = entity["x"];
         var y = entity["y"];
-        //moveTo(x,y);
         fillStyle = entity["colour"];
         strokeStyle = fillStyle;
         // arc(x, y, (entity["radius"])?entity["radius"]:50, 0, 2.0 * Math.PI, false);  
         arc(x, y, (entity["radius"]) ? entity["radius"] : 100, 0, 2.0 * Math.PI, false);  
-        // fill();
         stroke();                                
     }
 }
